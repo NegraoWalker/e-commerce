@@ -65,6 +65,7 @@ Mencione as ferramentas que você usou para criar seu projeto
 * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - O framework web usado
 * [Maven](https://maven.apache.org/) - Gerente de Dependência
 * [ROME](https://rometools.github.io/rome/) - Usada para gerar RSS
+* [PostgreSQL](https://www.postgresql.org/) - Banco de dados SQL versão 9.5
 
 ## 🖇️ Colaborando
 
