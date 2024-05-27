@@ -5,20 +5,19 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tb_product_brand")
-@SequenceGenerator(name = "seq_product_brand",sequenceName = "seq_product_brand",allocationSize = 1,initialValue = 1)
-public class ProductBrand implements Serializable { //MarcaProduto
-
+@Table(name = "tb_product_category")
+@SequenceGenerator(name = "seq_product_category",sequenceName = "seq_product_category",allocationSize = 1,initialValue = 1)
+public class ProductCategory implements Serializable { //CategoriaProduto
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_product_brand")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_product_category")
     private Long id;
     @Column(nullable = false)
     private String nameDescription; //nomeDesc
 
-    public ProductBrand() {
+    public ProductCategory() {
     }
 
-    public ProductBrand(Long id, String nameDescription) {
+    public ProductCategory(Long id, String nameDescription) {
         this.id = id;
         this.nameDescription = nameDescription;
     }
@@ -43,7 +42,7 @@ public class ProductBrand implements Serializable { //MarcaProduto
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ProductBrand that = (ProductBrand) o;
+        ProductCategory that = (ProductCategory) o;
         return Objects.equals(id, that.id);
     }
 
