@@ -10,17 +10,17 @@ import java.util.Objects;
 public class ProductBrand implements Serializable { //MarcaProduto
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_product_brand")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_product_brand")
     private Long id;
     @Column(nullable = false)
-    private String nameDescription; //nomeDesc
+    private String descriptionName; //nomeDesc
 
     public ProductBrand() {
     }
 
-    public ProductBrand(Long id, String nameDescription) {
+    public ProductBrand(Long id, String descriptionName) {
         this.id = id;
-        this.nameDescription = nameDescription;
+        this.descriptionName = descriptionName;
     }
 
     public Long getId() {
@@ -31,12 +31,12 @@ public class ProductBrand implements Serializable { //MarcaProduto
         this.id = id;
     }
 
-    public String getNameDescription() {
-        return nameDescription;
+    public String getDescriptionName() {
+        return descriptionName;
     }
 
-    public void setNameDescription(String nameDescription) {
-        this.nameDescription = nameDescription;
+    public void setDescriptionName(String descriptionName) {
+        this.descriptionName = descriptionName;
     }
 
     @Override

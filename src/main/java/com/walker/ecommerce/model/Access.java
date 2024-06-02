@@ -13,7 +13,7 @@ public class Access implements GrantedAuthority { //Acesso
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_access")
     private Long id;
     @Column(nullable = false)
-    private String description; //descrição Exemplos: ROLE_ADMIN, ROLE_
+    private String description; //descrição
 
     public Access() {
     }
@@ -35,6 +35,10 @@ public class Access implements GrantedAuthority { //Acesso
         return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -48,9 +52,7 @@ public class Access implements GrantedAuthority { //Acesso
         return Objects.hash(id);
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+
 
     @Override
     public String getAuthority() {
