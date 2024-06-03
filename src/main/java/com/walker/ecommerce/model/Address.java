@@ -1,5 +1,7 @@
 package com.walker.ecommerce.model;
 
+import com.walker.ecommerce.enums.AddressType;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -19,6 +21,10 @@ public class Address implements Serializable {
     private String city; //cidade
     private String uf;
 
+
+    @Enumerated(EnumType.STRING)
+    private AddressType addressType; //tipoEndereco
+
     @ManyToOne(targetEntity = Person.class)
     @JoinColumn(name = "person_id",nullable = false,foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT,name = "person_fk"))
     private Person person;
@@ -26,7 +32,7 @@ public class Address implements Serializable {
     public Address() {
     }
 
-    public Address(Long id, String cep, String street, String number, String neighborhood, String addressComplement, String city, String uf, Person person) {
+    public Address(Long id, String cep, String street, String number, String neighborhood, String addressComplement, String city, String uf, AddressType addressType, Person person) {
         this.id = id;
         this.cep = cep;
         this.street = street;
@@ -35,6 +41,7 @@ public class Address implements Serializable {
         this.addressComplement = addressComplement;
         this.city = city;
         this.uf = uf;
+        this.addressType = addressType;
         this.person = person;
     }
 
@@ -100,6 +107,14 @@ public class Address implements Serializable {
 
     public void setUf(String uf) {
         this.uf = uf;
+    }
+
+    public AddressType getAddressType() {
+        return addressType;
+    }
+
+    public void setAddressType(AddressType addressType) {
+        this.addressType = addressType;
     }
 
     public Person getPerson() {
