@@ -1,7 +1,8 @@
 package com.walker.ecommerce.enums;
 
 public enum AddressType { //TipoEndereco
-    COBRANCA("cobrança"), ENTREGA("entrega");
+    COBRANCA("cobrança"),
+    ENTREGA("entrega");
 
     private String description; //descrição
 

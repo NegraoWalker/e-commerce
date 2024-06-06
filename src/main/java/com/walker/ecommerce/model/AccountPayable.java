@@ -1,6 +1,7 @@
 package com.walker.ecommerce.model;
 
-import com.walker.ecommerce.enums.AccountStatusReceivable;
+import com.walker.ecommerce.enums.AccountStatusPayable;
+
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -8,17 +9,18 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
+
 @Entity
-@Table(name = "tb_account_receivable")
-@SequenceGenerator(name = "seq_account_receivable",sequenceName = "seq_account_receivable",initialValue = 1,allocationSize = 1)
-public class AccountReceivable implements Serializable { //ContaReceber
+@Table(name = "tb_account_payable")
+@SequenceGenerator(name = "seq_account_payable",sequenceName = "seq_account_payable",initialValue = 1,allocationSize = 1)
+public class AccountPayable implements Serializable { //ContaPagar
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_account_receivable")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_account_payable")
     private Long id;
 
     private String description; //descrição
     @Enumerated(EnumType.STRING)
-    private AccountStatusReceivable accountStatusReceivable; //statusContaReceber
+    private AccountStatusPayable accountStatusPayable; //statusContaPagar
     @Temporal(TemporalType.DATE)
     private Date paymentDate; //dtPagamento
     @Temporal(TemporalType.DATE)
@@ -30,18 +32,23 @@ public class AccountReceivable implements Serializable { //ContaReceber
     @JoinColumn(name = "person_id",nullable = false,foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT,name = "person_fk"))
     private Person person; //pessoa
 
-    public AccountReceivable() {
+    @ManyToOne(targetEntity = Person.class)
+    @JoinColumn(name = "supplier_id",nullable = false,foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT,name = "supplier_fk"))
+    private Person supplier; //pessoa_fornecedor
+
+    public AccountPayable() {
     }
 
-    public AccountReceivable(Long id, String description, AccountStatusReceivable accountStatusReceivable, Date paymentDate, Date dueDate, BigDecimal totalAmount, BigDecimal discountAmount, Person person) {
+    public AccountPayable(Long id, String description, AccountStatusPayable accountStatusPayable, Date paymentDate, Date dueDate, BigDecimal totalAmount, BigDecimal discountAmount, Person person, Person supplier) {
         this.id = id;
         this.description = description;
-        this.accountStatusReceivable = accountStatusReceivable;
+        this.accountStatusPayable = accountStatusPayable;
         this.paymentDate = paymentDate;
         this.dueDate = dueDate;
         this.totalAmount = totalAmount;
         this.discountAmount = discountAmount;
         this.person = person;
+        this.supplier = supplier;
     }
 
     public Long getId() {
@@ -60,12 +67,12 @@ public class AccountReceivable implements Serializable { //ContaReceber
         this.description = description;
     }
 
-    public AccountStatusReceivable getAccountStatusReceivable() {
-        return accountStatusReceivable;
+    public AccountStatusPayable getAccountStatusPayable() {
+        return accountStatusPayable;
     }
 
-    public void setAccountStatusReceivable(AccountStatusReceivable accountStatusReceivable) {
-        this.accountStatusReceivable = accountStatusReceivable;
+    public void setAccountStatusPayable(AccountStatusPayable accountStatusPayable) {
+        this.accountStatusPayable = accountStatusPayable;
     }
 
     public Date getPaymentDate() {
@@ -108,11 +115,19 @@ public class AccountReceivable implements Serializable { //ContaReceber
         this.person = person;
     }
 
+    public Person getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Person supplier) {
+        this.supplier = supplier;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AccountReceivable that = (AccountReceivable) o;
+        AccountPayable that = (AccountPayable) o;
         return Objects.equals(id, that.id);
     }
 

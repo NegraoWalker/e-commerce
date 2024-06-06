@@ -1,14 +1,15 @@
 package com.walker.ecommerce.enums;
 
-public enum AccountStatusReceivable { //StatusContaReceber
+public enum AccountStatusPayable { //StatusContaPagar
     COBRANCA("pagar"),
     VENCIDA("vencida"),
     ABERTA("aberta"),
-    QUITADA("quitada");
+    QUITADA("quitada"),
+    RENEGOCIADA("renegociada");
 
     private String description; //descrição
 
-    AccountStatusReceivable(String description) {
+    AccountStatusPayable(String description) {
         this.description = description;
     }
 
