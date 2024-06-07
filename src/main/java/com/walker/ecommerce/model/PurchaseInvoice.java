@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "tb_purchase_invoice")
-@SequenceGenerator(name = "seq_product_image", sequenceName = "seq_purchase_invoice", initialValue = 1, allocationSize = 1)
+@SequenceGenerator(name = "seq_purchase_invoice", sequenceName = "seq_purchase_invoice", initialValue = 1, allocationSize = 1)
 public class PurchaseInvoice implements Serializable { //NotaFiscalCompra
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_purchase_invoice")
@@ -26,7 +26,7 @@ public class PurchaseInvoice implements Serializable { //NotaFiscalCompra
     @JoinColumn(name = "person_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "person_fk"))
     private Person person; //pessoa
 
-    @ManyToOne
+    @ManyToOne(targetEntity = AccountPayable.class)
     @JoinColumn(name = "account_payable_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "account_payable_fk"))
     private AccountPayable accountPayable; //contaPagar
 
