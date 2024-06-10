@@ -19,6 +19,15 @@ public class SaleInvoice implements Serializable { //NotaFiscalVenda
     @Column(columnDefinition = "text")
     private String pdf;
 
+
+    @OneToOne
+    @JoinColumn(name = "sale_id",nullable = false,foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT,name = "sale_fk"))
+    private Sale sale;
+
+
+
+
+
     public SaleInvoice() {
     }
 

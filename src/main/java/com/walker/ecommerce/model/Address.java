@@ -25,7 +25,7 @@ public class Address implements Serializable {
     @Enumerated(EnumType.STRING)
     private AddressType addressType; //tipoEndereco
 
-    @ManyToOne(targetEntity = Person.class)
+    @ManyToOne
     @JoinColumn(name = "person_id",nullable = false,foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT,name = "person_fk"))
     private Person person;
 
