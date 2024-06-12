@@ -11,9 +11,9 @@ public class ProductImage implements Serializable { //ImagemProduto
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_product_image")
     private Long id;
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition = "text", nullable = false)
     private String originalImage; //imagemOriginal
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition = "text", nullable = false)
     private String thumbnailImage; //imagemMiniatura
 
     @ManyToOne(targetEntity = Product.class)

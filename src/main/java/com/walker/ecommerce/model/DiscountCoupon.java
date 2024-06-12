@@ -13,7 +13,9 @@ public class DiscountCoupon implements Serializable { //CupDesc
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_discount_coupon")
     private Long id;
+    @Column(nullable = false) //valores obrigatórios
     private String couponCode; //codDesc
+    @Column(nullable = false) //valores obrigatórios
     @Temporal(TemporalType.DATE)
     private Date couponExpirationDate; //dataValidadeCupom
     private BigDecimal discountAmount; //valorRealDesc

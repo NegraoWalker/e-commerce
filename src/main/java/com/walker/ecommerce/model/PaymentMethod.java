@@ -11,6 +11,7 @@ public class PaymentMethod implements Serializable { //FormaPagamento
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_payment_method")
     private Long id;
+    @Column(nullable = false) //valores obrigatórios
     private String decription; //descrição
 
     public PaymentMethod() {

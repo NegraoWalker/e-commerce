@@ -15,14 +15,17 @@ public class AccountReceivable implements Serializable { //ContaReceber
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_account_receivable")
     private Long id;
-
+    @Column(nullable = false) //valores obrigatórios
     private String description; //descrição
+    @Column(nullable = false) //valores obrigatórios
     @Enumerated(EnumType.STRING)
     private AccountStatusReceivable accountStatusReceivable; //statusContaReceber
     @Temporal(TemporalType.DATE)
     private Date paymentDate; //dtPagamento
+    @Column(nullable = false) //valores obrigatórios
     @Temporal(TemporalType.DATE)
     private Date dueDate; //dtVencimento
+    @Column(nullable = false) //valores obrigatórios
     private BigDecimal totalAmount; //valorTotal
     private BigDecimal discountAmount; //valorDesconto
 

@@ -13,12 +13,17 @@ public class PurchaseInvoice implements Serializable { //NotaFiscalCompra
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_purchase_invoice")
     private Long id;
+    @Column(nullable = false) //valores obrigatórios
     private String invoiceNumber; //numeroNota
+    @Column(nullable = false) //valores obrigatórios
     private String invoiceSeries; //serieNota
     private String description; //descricaoObs
+    @Column(nullable = false) //valores obrigatórios
     private BigDecimal totalAmount; //valorTotal
     private BigDecimal discountAmount; //valorDesconto
+    @Column(nullable = false) //valores obrigatórios
     private BigDecimal ICMSAmount; //valorICMS
+    @Column(nullable = false) //valores obrigatórios
     @Temporal(TemporalType.DATE)
     private Date purchaseDate; //dataCompra
 

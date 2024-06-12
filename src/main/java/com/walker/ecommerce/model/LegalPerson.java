@@ -1,5 +1,6 @@
 package com.walker.ecommerce.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -8,11 +9,14 @@ import javax.persistence.Table;
 @Table(name = "tb_legal_person")
 @PrimaryKeyJoinColumn(name = "id")
 public class LegalPerson extends Person{ //Pessoa Jurídica
-
+    @Column(nullable = false) //valores obrigatórios
     private String cnpj;
+    @Column(nullable = false) //valores obrigatórios
     private String tradeName; //nomeFantasia
+    @Column(nullable = false) //valores obrigatórios
     private String businessName; //razaoSocial
     private String category; //categoria
+    @Column(nullable = false) //valores obrigatórios
     private String stateRegistration; //inscEstadual
     private String municipalRegistration; //inscMunicipal
 

@@ -11,6 +11,7 @@ public class SaleItem implements Serializable { //ItemVendaLoja
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_sale_item")
     private Long id;
+    @Column(nullable = false) //valores obrigatórios
     private Double quantity; //quantidade
 
 

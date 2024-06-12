@@ -17,14 +17,17 @@ public class AccountPayable implements Serializable { //ContaPagar
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_account_payable")
     private Long id;
-
+    @Column(nullable = false) //valores obrigatórios
     private String description; //descrição
+    @Column(nullable = false) //valores obrigatórios
     @Enumerated(EnumType.STRING)
     private AccountStatusPayable accountStatusPayable; //statusContaPagar
     @Temporal(TemporalType.DATE)
     private Date paymentDate; //dtPagamento
+    @Column(nullable = false) //valores obrigatórios
     @Temporal(TemporalType.DATE)
     private Date dueDate; //dtVencimento
+    @Column(nullable = false) //valores obrigatórios
     private BigDecimal totalAmount; //valorTotal
     private BigDecimal discountAmount; //valorDesconto
 

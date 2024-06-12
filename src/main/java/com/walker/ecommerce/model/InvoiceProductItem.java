@@ -1,6 +1,5 @@
 package com.walker.ecommerce.model;
 
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.io.Serializable;

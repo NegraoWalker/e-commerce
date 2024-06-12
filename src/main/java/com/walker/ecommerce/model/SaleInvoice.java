@@ -11,12 +11,15 @@ public class SaleInvoice implements Serializable { //NotaFiscalVenda
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_sale_invoice")
     private Long id;
+    @Column(nullable = false) //valores obrigatórios
     private String invoiceNumber; //numero
+    @Column(nullable = false) //valores obrigatórios
     private String invoiceSeries; //serie
+    @Column(nullable = false) //valores obrigatórios
     private String type; //tipo
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition = "text", nullable = false)
     private String xml;
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition = "text", nullable = false)
     private String pdf;
 
 

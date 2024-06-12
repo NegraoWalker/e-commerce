@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "tb_user")
@@ -16,20 +17,14 @@ public class User implements UserDetails { //Usuario
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_user")
     private Long id;
-
+    @Column(nullable = false) //valores obrigatórios
     private String login;
+    @Column(nullable = false) //valores obrigatórios
     private String password; //senha
+    @Column(nullable = false) //valores obrigatórios
     @Temporal(TemporalType.DATE)
     private Date passwordUpdateDate; //dataAtualSenha
 
-
-//    @OneToMany(fetch = FetchType.LAZY)
-//    @JoinTable(name = "usuarios_acesso", uniqueConstraints = @UniqueConstraint (columnNames = {"usuario_id", "acesso_id"} ,
-//            name = "unique_acesso_user"),
-//            joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id", table = "usuario",
-//                    unique = false, foreignKey = @ForeignKey(name = "usuario_fk", value = ConstraintMode.CONSTRAINT)),
-//            inverseJoinColumns = @JoinColumn(name = "acesso_id", unique = false, referencedColumnName = "id", table = "acesso",
-//                    foreignKey = @ForeignKey(name = "aesso_fk", value = ConstraintMode.CONSTRAINT)))
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -40,6 +35,80 @@ public class User implements UserDetails { //Usuario
                     name = "access_fk",value = ConstraintMode.CONSTRAINT))
     )
     private List<Access> accesses;
+
+    @ManyToOne
+    @JoinColumn(name = "person_id",nullable = false,foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT,name = "person_fk"))
+    private Person person; //pessoa
+
+
+    public User() {
+    }
+
+    public User(Long id, String login, String password, Date passwordUpdateDate, List<Access> accesses, Person person) {
+        this.id = id;
+        this.login = login;
+        this.password = password;
+        this.passwordUpdateDate = passwordUpdateDate;
+        this.accesses = accesses;
+        this.person = person;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Date getPasswordUpdateDate() {
+        return passwordUpdateDate;
+    }
+
+    public void setPasswordUpdateDate(Date passwordUpdateDate) {
+        this.passwordUpdateDate = passwordUpdateDate;
+    }
+
+    public List<Access> getAccesses() {
+        return accesses;
+    }
+
+    public void setAccesses(List<Access> accesses) {
+        this.accesses = accesses;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
 
 

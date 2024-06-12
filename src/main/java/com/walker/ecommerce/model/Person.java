@@ -13,8 +13,11 @@ public abstract class Person implements Serializable { //Pessoa
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_person")
     private Long Id;
+    @Column(nullable = false) //valores obrigatórios
     private String name; //nome
+    @Column(nullable = false) //valores obrigatórios
     private String email;
+    @Column(nullable = false) //valores obrigatórios
     private String phone; //telefone
 
     @OneToMany(mappedBy = "person",orphanRemoval = true,cascade = CascadeType.ALL,fetch = FetchType.LAZY) //mapeado para o atributo da classe Address person

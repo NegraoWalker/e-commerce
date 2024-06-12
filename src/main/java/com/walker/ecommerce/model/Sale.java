@@ -13,12 +13,17 @@ public class Sale implements Serializable { //VendaCompraLojaVirtual
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_sale")
     private Long id;
+    @Column(nullable = false) //valores obrigatórios
     private BigDecimal totalAmount; //valorTotal
     private BigDecimal discountAmount; //ValorDesconto
+    @Column(nullable = false) //valores obrigatórios
     private BigDecimal shippingCost; //valorFrete
+    @Column(nullable = false) //valores obrigatórios
     private Integer  deliveryDays; //diasEntrega
+    @Column(nullable = false) //valores obrigatórios
     @Temporal(TemporalType.DATE)
     private Date saleDate; //dataVenda
+    @Column(nullable = false) //valores obrigatórios
     @Temporal(TemporalType.DATE)
     private Date deliveryDate; //dataEntrega
 
@@ -38,7 +43,7 @@ public class Sale implements Serializable { //VendaCompraLojaVirtual
     @JoinColumn(name = "sale_invoice_id",nullable = false,foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT,name = "sale_invoice_fk"))
     private SaleInvoice saleInvoice; //notaFiscalVenda
     @ManyToOne
-    @JoinColumn(name = "discount_coupon_id",nullable = false,foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT,name = "discount_coupon_fk"))
+    @JoinColumn(name = "discount_coupon_id", foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT,name = "discount_coupon_fk"))
     private DiscountCoupon discountCoupon; //cupDesc
 
     public Sale() {

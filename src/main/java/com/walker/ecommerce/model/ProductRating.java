@@ -1,5 +1,7 @@
 package com.walker.ecommerce.model;
 
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -11,7 +13,9 @@ public class ProductRating implements Serializable { //AvalicaoProduto
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_product_rating")
     private Long id;
+    @Column(nullable = false) //valores obrigatórios
     private Integer score; //nota
+    @Column(nullable = false) //valores obrigatórios
     private String justification; //justificativa
 
 

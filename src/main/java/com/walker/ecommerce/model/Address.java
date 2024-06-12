@@ -13,15 +13,21 @@ public class Address implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_address")
     private Long id;
+    @Column(nullable = false) //valores obrigatórios
     private String cep;
+    @Column(nullable = false) //valores obrigatórios
     private String street; //ruaLogra
+    @Column(nullable = false) //valores obrigatórios
     private String number; //numero
+    @Column(nullable = false) //valores obrigatórios
     private String neighborhood; //bairro
     private String addressComplement; //complemento
+    @Column(nullable = false) //valores obrigatórios
     private String city; //cidade
+    @Column(nullable = false) //valores obrigatórios
     private String uf;
 
-
+    @Column(nullable = false) //valores obrigatórios
     @Enumerated(EnumType.STRING)
     private AddressType addressType; //tipoEndereco
 
