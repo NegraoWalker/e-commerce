@@ -10,7 +10,10 @@ Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar 
 
 ### 📋 Pré-requisitos
 
-De que coisas você precisa para instalar o software e como instalá-lo?
+
+
+
+- De que coisas você precisa para instalar o software e como instalá-lo?
 
 ```
 Dar exemplos
@@ -62,10 +65,12 @@ Adicione notas adicionais sobre como implantar isso em um sistema ativo
 
 Mencione as ferramentas que você usou para criar seu projeto
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - O framework web usado
+* [Java](https://www.azul.com/downloads/?package=jdk#zulu) - Versão 11
 * [Maven](https://maven.apache.org/) - Gerente de Dependência
-* [ROME](https://rometools.github.io/rome/) - Usada para gerar RSS
-* [PostgreSQL](https://www.postgresql.org/) - Banco de dados SQL versão 9.5
+* [Postman](https://www.postman.com/) - Versão 11
+* [PostgreSQL](https://www.postgresql.org/) - Banco de dados SQL versão 16
+* [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/?section=windows) - IDE Versão 2023.3
+* [Astah UML](https://astah.net/pricing/) - Versão 9.2
 
 ## 🖇️ Colaborando
 
