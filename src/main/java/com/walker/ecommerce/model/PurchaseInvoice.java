@@ -27,11 +27,11 @@ public class PurchaseInvoice implements Serializable { //NotaFiscalCompra
     @Temporal(TemporalType.DATE)
     private Date purchaseDate; //dataCompra
 
-    @ManyToOne(targetEntity = Person.class)
+    @ManyToOne
     @JoinColumn(name = "person_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "person_fk"))
     private Person person; //pessoa
 
-    @ManyToOne(targetEntity = AccountPayable.class)
+    @ManyToOne
     @JoinColumn(name = "account_payable_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "account_payable_fk"))
     private AccountPayable accountPayable; //contaPagar
 

@@ -43,6 +43,7 @@ public class Product implements Serializable { //Produto
     public Product() {
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

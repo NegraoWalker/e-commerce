@@ -31,11 +31,11 @@ public class AccountPayable implements Serializable { //ContaPagar
     private BigDecimal totalAmount; //valorTotal
     private BigDecimal discountAmount; //valorDesconto
 
-    @ManyToOne(targetEntity = Person.class)
+    @ManyToOne
     @JoinColumn(name = "person_id",nullable = false,foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT,name = "person_fk"))
     private Person person; //pessoa
 
-    @ManyToOne(targetEntity = Person.class)
+    @ManyToOne
     @JoinColumn(name = "supplier_id",nullable = false,foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT,name = "supplier_fk"))
     private Person supplier; //pessoa_fornecedor
 
