@@ -15,11 +15,11 @@ public class InvoiceProductItem implements Serializable { //NotaItemProduto
     @Column(nullable = false)
     private Double quantity; //quantidade
 
-    @ManyToOne(targetEntity = Product.class)
+    @ManyToOne
     @JoinColumn(name = "product_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "product_fk"))
     private Product product; //produto
 
-    @ManyToOne(targetEntity = PurchaseInvoice.class)
+    @ManyToOne
     @JoinColumn(name = "purchase_invoice_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "purchase_invoice_fk"))
     private PurchaseInvoice purchaseInvoice; //notaFiscalCompra
 

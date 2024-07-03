@@ -29,7 +29,7 @@ public class AccountReceivable implements Serializable { //ContaReceber
     private BigDecimal totalAmount; //valorTotal
     private BigDecimal discountAmount; //valorDesconto
 
-    @ManyToOne(targetEntity = Person.class)
+    @ManyToOne
     @JoinColumn(name = "person_id",nullable = false,foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT,name = "person_fk"))
     private Person person; //pessoa
 

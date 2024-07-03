@@ -16,7 +16,7 @@ public class ProductImage implements Serializable { //ImagemProduto
     @Column(columnDefinition = "text", nullable = false)
     private String thumbnailImage; //imagemMiniatura
 
-    @ManyToOne(targetEntity = Product.class)
+    @ManyToOne
     @JoinColumn(name = "product_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "product_fk"))
     private Product product; //produto
 
