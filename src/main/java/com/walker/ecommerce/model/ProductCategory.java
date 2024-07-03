@@ -17,26 +17,6 @@ public class ProductCategory implements Serializable { //CategoriaProduto
     public ProductCategory() {
     }
 
-    public ProductCategory(Long id, String descriptionName) {
-        this.id = id;
-        this.descriptionName = descriptionName;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescriptionName() {
-        return descriptionName;
-    }
-
-    public void setDescriptionName(String descriptionName) {
-        this.descriptionName = descriptionName;
-    }
 
     @Override
     public boolean equals(Object o) {
