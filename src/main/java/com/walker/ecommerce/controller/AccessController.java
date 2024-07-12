@@ -12,7 +12,6 @@ public class AccessController {
     @Autowired
     private AccessService accessService;
 
-    @ResponseBody //Retorno da API será via Body
     @PostMapping("**/cadastrar-acesso") //URL mapeada para receber um JSON
     public ResponseEntity<Access> registerAccess(@RequestBody Access access) { //Recebe um JSON e transforma para um objeto da classe Access
         Access registerAccess = accessService.save(access);

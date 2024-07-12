@@ -1,5 +1,6 @@
 package com.walker.ecommerce.model;
 
+
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ public class Access implements GrantedAuthority { //Acesso
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_access")
     private Long id;
+
     @Column(nullable = false)
     private String description; //descrição
 
