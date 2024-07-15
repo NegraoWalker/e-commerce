@@ -2,6 +2,7 @@ package com.walker.ecommerce.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -16,8 +17,8 @@ public class NaturalPerson extends Person{ //Pessoa Física
     public NaturalPerson() {
     }
 
-    public NaturalPerson(Long id, String name, String email, String phone, String cpf, Date dateOfBirth) {
-        super(id, name, email, phone);
+    public NaturalPerson(Long id, String name, String email, String phone, String typePerson, List<Address> addresses, String cpf, Date dateOfBirth) {
+        super(id, name, email, phone, typePerson, addresses);
         this.cpf = cpf;
         this.dateOfBirth = dateOfBirth;
     }

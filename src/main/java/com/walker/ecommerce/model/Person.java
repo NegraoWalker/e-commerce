@@ -19,6 +19,8 @@ public abstract class Person implements Serializable { //Pessoa
     private String email;
     @Column(nullable = false) //valores obrigatórios
     private String phone; //telefone
+    @Column(nullable = false) //valores obrigatórios
+    private String typePerson; //tipoPessoa
 
     @OneToMany(mappedBy = "person",orphanRemoval = true,cascade = CascadeType.ALL,fetch = FetchType.LAZY) //mapeado para o atributo da classe Address person
     private List<Address> addresses = new ArrayList<>();
@@ -26,11 +28,13 @@ public abstract class Person implements Serializable { //Pessoa
     public Person() {
     }
 
-    public Person(Long id, String name, String email, String phone) {
+    public Person(Long id, String name, String email, String phone, String typePerson, List<Address> addresses) {
         Id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
+        this.typePerson = typePerson;
+        this.addresses = addresses;
     }
 
     public Long getId() {
@@ -63,6 +67,14 @@ public abstract class Person implements Serializable { //Pessoa
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getTypePerson() {
+        return typePerson;
+    }
+
+    public void setTypePerson(String typePerson) {
+        this.typePerson = typePerson;
     }
 
     @Override

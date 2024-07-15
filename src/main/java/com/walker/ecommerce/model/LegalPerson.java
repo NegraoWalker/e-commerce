@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_legal_person")
@@ -23,8 +24,8 @@ public class LegalPerson extends Person{ //Pessoa Jurídica
     public LegalPerson() {
     }
 
-    public LegalPerson(Long id, String name, String email, String phone, String cnpj, String tradeName, String businessName, String category, String stateRegistration, String municipalRegistration) {
-        super(id, name, email, phone);
+    public LegalPerson(Long id, String name, String email, String phone, String typePerson, List<Address> addresses, String cnpj, String tradeName, String businessName, String category, String stateRegistration, String municipalRegistration) {
+        super(id, name, email, phone, typePerson, addresses);
         this.cnpj = cnpj;
         this.tradeName = tradeName;
         this.businessName = businessName;
