@@ -26,6 +26,7 @@ public class User implements UserDetails { //Usuario
     private Date passwordUpdateDate; //dataAtualSenha
 
 
+
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "tb_user_access", uniqueConstraints = @UniqueConstraint(columnNames = {"user_id","access_id"},name = "unique_access_user"),
