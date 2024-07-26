@@ -62,20 +62,8 @@ public class User implements UserDetails { //Usuario
         this.id = id;
     }
 
-    public Date getPasswordUpdateDate() {
-        return passwordUpdateDate;
-    }
-
-    public void setPasswordUpdateDate(Date passwordUpdateDate) {
-        this.passwordUpdateDate = passwordUpdateDate;
-    }
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
+    public String getLogin() {
+        return login;
     }
 
     public void setLogin(String login) {
@@ -86,8 +74,28 @@ public class User implements UserDetails { //Usuario
         this.password = password;
     }
 
+    public Date getPasswordUpdateDate() {
+        return passwordUpdateDate;
+    }
+
+    public void setPasswordUpdateDate(Date passwordUpdateDate) {
+        this.passwordUpdateDate = passwordUpdateDate;
+    }
+
+    public List<Access> getAccesses() {
+        return accesses;
+    }
+
     public void setAccesses(List<Access> accesses) {
         this.accesses = accesses;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
     @Override
